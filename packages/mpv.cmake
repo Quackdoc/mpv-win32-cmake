@@ -21,7 +21,6 @@ ExternalProject_Add(mpv
         --buildtype=release
         --default-library=shared
         --prefer-static
-        -Dgl=false
         -Dgpl=false
         -Db_lto=true
         -Db_ndebug=true
@@ -32,6 +31,7 @@ ExternalProject_Add(mpv
         -Dlibarchive=enabled
         -Dlcms2=enabled
         -Dopenal=enabled
+        -Dgl=disabled
         -Dspirv-cross=disabled
         -Dlibplacebo=disabled
         -Degl-angle=disabled
