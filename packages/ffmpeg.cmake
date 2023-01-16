@@ -43,12 +43,12 @@ ExternalProject_Add(ffmpeg
         --enable-libmysofa
         --enable-libvpl
         --enable-libjxl
-        --enable-cuvid
         --enable-amf
         --disable-doc
         --disable-cuda
         --disable-nvdec
         --disable-nvenc
+        --disable-cuvid
         --disable-libuavs3d
         --disable-ffnvcodec
     BUILD_COMMAND ${MAKE}
