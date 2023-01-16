@@ -9,8 +9,6 @@ ExternalProject_Add(ffmpeg
         libwebp
         libzimg
         libmysofa
-        libxml2
-        libmfx
         opus
         speex
         vorbis
