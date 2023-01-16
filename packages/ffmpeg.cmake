@@ -15,7 +15,6 @@ ExternalProject_Add(ffmpeg
         libxml2
         libvpl
         libjxl
-        uavs3d
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_SHALLOW 1
@@ -39,18 +38,18 @@ ExternalProject_Add(ffmpeg
         --enable-libspeex
         --enable-libvorbis
         --enable-libwebp
-        --enable-libuavs3d
         --enable-libzimg
         --enable-libxml2
         --enable-libmysofa
         --enable-libvpl
         --enable-libjxl
-        --disable-cuda
         --enable-cuvid
-        --disable-nvdec
-        --disable-nvenc
         --enable-amf
         --disable-doc
+        --disable-cuda
+        --disable-nvdec
+        --disable-nvenc
+        --disable-libuavs3d
         --disable-ffnvcodec
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
