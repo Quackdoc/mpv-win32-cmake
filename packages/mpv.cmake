@@ -11,7 +11,6 @@ ExternalProject_Add(mpv
         uchardet
         openal-soft
         mujs
-        spirv-cross
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
     UPDATE_COMMAND ""
@@ -33,7 +32,7 @@ ExternalProject_Add(mpv
         -Dlibarchive=enabled
         -Dlcms2=enabled
         -Dopenal=enabled
-        -Dspirv-cross=enabled
+        -Dspirv-cross=disabled
         -Dlibplacebo=disabled
         -Degl-angle=disabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>

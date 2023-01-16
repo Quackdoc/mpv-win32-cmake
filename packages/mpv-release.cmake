@@ -26,7 +26,6 @@ ExternalProject_Add(mpv-release
         uchardet
         openal-soft
         mujs
-        spirv-cross
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
     CONFIGURE_COMMAND ${EXEC} meson <BINARY_DIR> <SOURCE_DIR>
@@ -47,7 +46,7 @@ ExternalProject_Add(mpv-release
         -Dlibarchive=enabled
         -Dlcms2=enabled
         -Dopenal=enabled
-        -Dspirv-cross=enabled
+        -Dspirv-cross=disabled
         -Dlibplacebo=disabled
         -Degl-angle=disabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
