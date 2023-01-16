@@ -15,7 +15,6 @@ execute_process(COMMAND ${PREFIX_DIR}/src/get_latest_tag.sh
 
 ExternalProject_Add(mpv-release
     DEPENDS
-        angle-headers
         ffmpeg
         fribidi
         lcms2
@@ -27,9 +26,6 @@ ExternalProject_Add(mpv-release
         uchardet
         openal-soft
         mujs
-        vulkan
-        shaderc
-        libplacebo
         spirv-cross
     URL ${LINK}
     SOURCE_DIR ${SOURCE_LOCATION}
@@ -40,6 +36,7 @@ ExternalProject_Add(mpv-release
         --buildtype=release
         --default-library=shared
         --prefer-static
+        -Dgl=false
         -Dgpl=false
         -Db_lto=true
         -Db_ndebug=true
@@ -51,8 +48,8 @@ ExternalProject_Add(mpv-release
         -Dlcms2=enabled
         -Dopenal=enabled
         -Dspirv-cross=enabled
-        -Dvulkan=enabled
-        -Degl-angle=enabled
+        -Dlibplacebo=disabled
+        -Degl-angle=disabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

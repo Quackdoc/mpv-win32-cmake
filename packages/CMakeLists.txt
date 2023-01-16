@@ -28,17 +28,13 @@ list(APPEND ep
     libsoxr
     graphengine
     libzimg
-    fontconfig
     libunibreak
     libass
     mbedtls
     libxml2
     libvpl
     amf-headers
-    nvcodec-headers
     libmysofa
-    aom
-    dav1d
     libwebp
     libbs2b
     libssh
@@ -48,19 +44,9 @@ list(APPEND ep
     brotli
     highway
     libjxl
-    uavs3d
     ffmpeg
-    angle-headers
     mujs
-    spirv-headers
-    spirv-tools
-    spirv-cross
-    glslang
-    vulkan-header
-    vulkan
-    shaderc
     glad
-    libplacebo
     libsixel
     curl
     mpv

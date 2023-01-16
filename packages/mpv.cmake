@@ -1,6 +1,5 @@
 ExternalProject_Add(mpv
     DEPENDS
-        angle-headers
         ffmpeg
         fribidi
         lcms2
@@ -12,9 +11,6 @@ ExternalProject_Add(mpv
         uchardet
         openal-soft
         mujs
-        vulkan
-        shaderc
-        libplacebo
         spirv-cross
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
@@ -26,6 +22,7 @@ ExternalProject_Add(mpv
         --buildtype=release
         --default-library=shared
         --prefer-static
+        -Dgl=false
         -Dgpl=false
         -Db_lto=true
         -Db_ndebug=true
@@ -37,8 +34,8 @@ ExternalProject_Add(mpv
         -Dlcms2=enabled
         -Dopenal=enabled
         -Dspirv-cross=enabled
-        -Dvulkan=enabled
-        -Degl-angle=enabled
+        -Dlibplacebo=disabled
+        -Degl-angle=disabled
     BUILD_COMMAND ${EXEC} ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
@@ -59,7 +56,6 @@ ExternalProject_Add_Step(mpv copy-binary
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/mpv.exe                           ${CMAKE_CURRENT_BINARY_DIR}/mpv-package/mpv.exe
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/generated/mpv.com                 ${CMAKE_CURRENT_BINARY_DIR}/mpv-package/mpv.com
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/mpv.pdf                           ${CMAKE_CURRENT_BINARY_DIR}/mpv-package/doc/manual.pdf
-    COMMAND ${CMAKE_COMMAND} -E copy ${MINGW_INSTALL_PREFIX}/etc/fonts/fonts.conf   ${CMAKE_CURRENT_BINARY_DIR}/mpv-package/mpv/fonts.conf
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/mpv.debug                         ${CMAKE_CURRENT_BINARY_DIR}/mpv-debug/mpv.debug
 
     COMMAND ${CMAKE_COMMAND} -E copy <BINARY_DIR>/libmpv-2.dll          ${CMAKE_CURRENT_BINARY_DIR}/mpv-dev/mpv-2.dll
