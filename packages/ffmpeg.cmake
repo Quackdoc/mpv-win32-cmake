@@ -67,6 +67,7 @@ ExternalProject_Add(ffmpeg
         --enable-nvdec
         --enable-nvenc
         --enable-amf
+        --enable-vulkan
         --disable-doc
         --disable-decoder=libaom_av1
     BUILD_COMMAND ${MAKE}
